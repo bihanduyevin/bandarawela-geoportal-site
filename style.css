@@ -799,5 +799,5 @@ body {
 }
 .card-spatial:hover {
     background: linear-gradient(to bottom, var(--bg-card) 20%, rgba(15, 28, 24, 0.2) 100%), 
-                url('assets/nine arch.jpg') center bottom / cover no-repeat;
+                url('assets/railway.jpg') center bottom / cover no-repeat;
 }
