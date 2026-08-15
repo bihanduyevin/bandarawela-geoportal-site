@@ -728,30 +728,76 @@ body {
     }
 }
 /* =========================================
-   PERAHERA CARD WITH FADED BACKGROUND
+   CARDS WITH FADED BACKGROUND IMAGES
    ========================================= */
+
+/* Ensure the text and icon stay highly visible against the images for all modified cards */
+.card-perahera .card-icon, .card-perahera h3, .card-perahera p,
+.card-pola .card-icon, .card-pola h3, .card-pola p,
+.card-climate .card-icon, .card-climate h3, .card-climate p,
+.card-transit .card-icon, .card-transit h3, .card-transit p,
+.card-spatial .card-icon, .card-spatial h3, .card-spatial p {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+/* 1. Perahera Card */
 .card-perahera {
-    /* 
-      1. Uses a linear gradient fading from the solid card color to a transparent dark green.
-      2. Places the image at the bottom center and scales it to cover the background.
-    */
     background: linear-gradient(to bottom, var(--bg-card) 40%, rgba(15, 28, 24, 0.4) 100%), 
                 url('assets/perahera.jpg') center bottom / cover no-repeat;
     position: relative;
     z-index: 1;
 }
-
-/* Ensure the text and icon stay highly visible against the image */
-.card-perahera .card-icon,
-.card-perahera h3,
-.card-perahera p {
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9); /* Adds a dark shadow behind the text */
-}
-
-/* Enhances the hover effect to slightly reveal more of the image */
 .card-perahera:hover {
     background: linear-gradient(to bottom, var(--bg-card) 20%, rgba(15, 28, 24, 0.2) 100%), 
                 url('assets/perahera.jpg') center bottom / cover no-repeat;
+}
+
+/* 2. Sunday Pola Card */
+.card-pola {
+    background: linear-gradient(to bottom, var(--bg-card) 40%, rgba(15, 28, 24, 0.4) 100%), 
+                url('assets/pola.jpg') center bottom / cover no-repeat;
+    position: relative;
+    z-index: 1;
+}
+.card-pola:hover {
+    background: linear-gradient(to bottom, var(--bg-card) 20%, rgba(15, 28, 24, 0.2) 100%), 
+                url('assets/pola.jpg') center bottom / cover no-repeat;
+}
+
+/* 3. Unique Climate Card */
+.card-climate {
+    background: linear-gradient(to bottom, var(--bg-card) 40%, rgba(15, 28, 24, 0.4) 100%), 
+                url('assets/climate.jpg') center bottom / cover no-repeat;
+    position: relative;
+    z-index: 1;
+}
+.card-climate:hover {
+    background: linear-gradient(to bottom, var(--bg-card) 20%, rgba(15, 28, 24, 0.2) 100%), 
+                url('assets/climate.jpg') center bottom / cover no-repeat;
+}
+
+/* 4. Transit Hub Card */
+.card-transit {
+    background: linear-gradient(to bottom, var(--bg-card) 40%, rgba(15, 28, 24, 0.4) 100%), 
+                url('assets/transit.jpg') center bottom / cover no-repeat;
+    position: relative;
+    z-index: 1;
+}
+.card-transit:hover {
+    background: linear-gradient(to bottom, var(--bg-card) 20%, rgba(15, 28, 24, 0.2) 100%), 
+                url('assets/transit.jpg') center bottom / cover no-repeat;
+}
+
+/* 5. Spatial Analytics Card */
+.card-spatial {
+    background: linear-gradient(to bottom, var(--bg-card) 40%, rgba(15, 28, 24, 0.4) 100%), 
+                url('assets/spatial.jpg') center bottom / cover no-repeat;
+    position: relative;
+    z-index: 1;
+}
+.card-spatial:hover {
+    background: linear-gradient(to bottom, var(--bg-card) 20%, rgba(15, 28, 24, 0.2) 100%), 
+                url('assets/spatial.jpg') center bottom / cover no-repeat;
 }
