@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandarawela | Village Identity</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="global-video-bg">
+        <source src="assets/secondary-bg.mp4" type="video/mp4">
+    </video>
+
+    <nav class="navbar">
+        <div class="logo">BANDARAWELA</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#identity">Heritage</a></li>
+            <li><a href="geoportal.html" class="highlight-link">Geo-Portal</a></li>
+            <li><a href="#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <video autoplay muted loop playsinline class="video-background">
+            <source src="assets/bgvid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content animate-text">
+            <h1>DISCOVER<br><span class="accent-text">BANDARAWELA</span></h1>
+            <p>Experience the unique climate, colonial tea heritage, and vibrant Uva culture of Sri Lanka's most pristine mountain town.</p>
+            <a href="geoportal.html" class="btn-primary">Explore Spatial Data</a>
+        </div>
+    </header>
+
+    <section id="identity" class="identity-section">
+        <div class="identity-container">
+            <div class="identity-text animate-text">
+                <span class="data-badge">Our Heritage</span>
+                <h2>The Healing City of the Uva Highlands</h2>
+                <p>Nestled at an elevation of 1,230 meters, Bandarawela boasts a unique, mild, and relatively dry climate. During the colonial era, the British established the town as an exclusive health resort and sanatorium to escape the tropical heat.</p>
+                <p>Today, the town is a thriving hub surrounded by lush, world-renowned tea plantations and breathtaking waterfalls.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-leaf accent-text"></i> World-class Ceylon tea estates</li>
+                    <li><i class="fas fa-train accent-text"></i> Historic 19th-century railway network</li>
+                    <li><i class="fas fa-landmark accent-text"></i> Ancient Buddhist archaeology (Dowa Temple)</li>
+                </ul>
+            </div>
+            <div class="identity-image animate-text">
+                <img src="assets/bhotel.jpg" alt="Historic Bandarawela Hotel" class="heritage-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="photo-reel-section">
+        <div class="section-header animate-text" style="text-align: center;">
+            <h2>GLIMPSES OF THE HIGHLANDS</h2>
+            <p>A visual journey through our landscapes.</p>
+        </div>
+        <div class="reel-wrapper">
+            <div class="reel-track">
+                <img src="assets/Edhism.jpg" alt="Adisham">
+                <img src="assets/Rawana.jpg" alt="Dowa Temple">
+                <img src="assets/Dunhidha.jpg" alt="Bandarawela Hotel">
+                <img src="assets/Diyaluma.jpg" alt="Adisham">
+                <img src="assets/railway.jpg" alt="Dowa Temple">
+            </div>
+        </div>
+    </section>
+
+    <section class="evolution-section">
+        <div class="section-header animate-text" style="text-align: center;">
+            <h2>CITY EVOLUTION</h2>
+            <p>Drag the slider to compare the historical and modern layout of Bandarawela.</p>
+        </div>
+        <div class="compare-container animate-text">
+            <img src="assets/2000_Bandarawela.png" class="compare-img base-img" alt="Historical Map">
+            <div class="compare-overlay" id="compareOverlay">
+                <img src="assets/2026_Bandarawela.png" class="compare-img overlay-img" alt="Modern Map">
+            </div>
+            <input type="range" min="0" max="100" value="50" class="compare-slider" id="compareSlider">
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="section-header animate-text">
+            <h2>VILLAGE SNAPSHOT</h2>
+            <p>The defining characteristics of our mountain town.</p>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">🌿</div>
+                <h3>Unique Climate</h3>
+                <p>Renowned for its mild, healing climate. Surrounded by lush tea estates that have driven the local economy.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🚂</div>
+                <h3>Transit Hub</h3>
+                <p>A vital hub on the upcountry railway line, renowned for its scenic train rides connecting Colombo to Badulla.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🗺️</div>
+                <h3>Spatial Analytics</h3>
+                <p>Access our interactive Geo-Portal to map local resources, topography, and municipal boundaries.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="events-section features-section">
+        <div class="section-header animate-text" style="text-align: center;">
+            <h2>CULTURAL VIBRANCY</h2>
+            <p>Experience the traditions, festivals, and daily life of Bandarawela.</p>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">🎭</div>
+                <h3>Local Perahera</h3>
+                <p>Annual cultural processions featuring traditional Kandyan dancers, drummers, and illuminated parades.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛍️</div>
+                <h3>The Sunday Pola (Market)</h3>
+                <p>A bustling weekly event where villagers and farmers gather to trade fresh highland produce and crafts.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="chart-section" style="padding: 50px 10%; background-color: rgba(15, 28, 24, 0.6); backdrop-filter: blur(3px);">
+        <div class="section-header animate-text" style="text-align: center;">
+            <h2>DEMOGRAPHIC GROWTH</h2>
+            <p>Bandarawela's estimated population evolution over the decades.</p>
+        </div>
+        <div class="chart-container animate-text" style="position: relative; height: 400px; width: 100%; max-width: 800px; margin: 0 auto; background: rgba(26, 44, 37, 0.85); border-radius: 20px; padding: 20px; border: 1px solid rgba(46, 204, 145, 0.3); box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
+            <canvas id="populationChart"></canvas>
+        </div>
+    </section>
+
+    <section id="community" class="community-section">
+        <div class="community-box animate-text">
+            <h2>Community Forum & Feedback</h2>
+            <p>Connect with residents, ask questions about Bandarawela's development plans, or share your spatial data insights.</p>
+            <div class="interaction-buttons">
+                <a href="#" class="btn-secondary">Join the Discussion</a>
+                <a href="#" class="btn-secondary">Leave Feedback</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>BANDARAWELA</h3>
+                <p>Visualizing spatial information and preserving local heritage for the Town & Country Planning community.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Main Street, Bandarawela, Sri Lanka</p>
+                <p><i class="fas fa-envelope"></i> info@bandarawela-geo.lk</p>
+                <p><i class="fas fa-phone"></i> +94 57 222 2222</p>
+            </div>
+            <div class="footer-social">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bandarawela Geo-Portal Project. Designed for PL1106.</p>
+        </div>
+    </footer>
+
+    <!-- Linked to external JS file -->
+    <script src="js/main.js"></script>
+</body>
+</html>

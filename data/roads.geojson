@@ -1,0 +1,16 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Main Street Bandarawela", "type": "Primary" },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [80.9850, 6.8320],
+          [80.9920, 6.8300]
+        ]
+      }
+    }
+  ]
+}

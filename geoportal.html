@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandarawela | Spatial Geo-Portal</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    
+    <style>
+        .portal-hero { position: relative; min-height: 45vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 100px 20px 40px; overflow: hidden; }
+        .portal-gradient-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(15, 28, 24, 0.95) 0%, rgba(46, 204, 145, 0.3) 50%, rgba(15, 28, 24, 0.95) 100%); background-size: 200% 200%; animation: gradientShift 8s ease infinite; z-index: -1; }
+        @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .portal-hero-content { max-width: 800px; z-index: 1; }
+        .portal-hero-content h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 700; }
+        .portal-hero-content p { color: var(--text-muted); font-size: 1.1rem; }
+        .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 0 10%; margin-top: -30px; position: relative; z-index: 10; }
+        .stat-card { background: rgba(26, 44, 37, 0.85); backdrop-filter: blur(12px); padding: 20px; border-radius: 16px; border: 1px solid rgba(46, 204, 145, 0.3); text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,0.4); }
+        .stat-number { font-size: 2rem; font-weight: 700; color: var(--accent-green); margin-bottom: 5px; }
+        .stat-label { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .map-section { padding: 50px 10%; }
+        #map { height: 580px; width: 100%; border-radius: 20px; border: 2px solid rgba(46, 204, 145, 0.3); box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6); z-index: 1; }
+        .extraction-container { padding: 20px 10% 80px; }
+        .extraction-panel { background: linear-gradient(135deg, var(--bg-card) 0%, rgba(46, 204, 145, 0.08) 100%); padding: 35px; border-radius: 20px; border: 1px solid rgba(46, 204, 145, 0.3); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 25px; }
+        .data-badge { display: inline-block; background: rgba(46, 204, 145, 0.15); color: var(--accent-green); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
+        .animated-route { stroke-dasharray: 15, 15; animation: flowRoute 1.5s linear infinite; }
+        @keyframes flowRoute { to { stroke-dashoffset: -30; } }
+        .city-label { background: rgba(15, 28, 24, 0.9); color: var(--accent-green); border: 1px solid var(--accent-green); font-weight: bold; font-size: 0.85rem; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="global-video-bg">
+        <source src="assets/secondary-bg.mp4" type="video/mp4">
+    </video>
+
+    <nav class="navbar">
+        <div class="logo">BANDARAWELA</div>
+        <ul class="nav-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#identity">Heritage</a></li>
+            <li><a href="geoportal.html" class="highlight-link">Geo-Portal</a></li>
+            <li><a href="index.html#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <header class="portal-hero">
+        <div class="portal-gradient-overlay"></div>
+        <div class="portal-hero-content">
+            <h1>BANDARAWELA <span class="accent-text">GEO-PORTAL</span></h1>
+            <p>Interactive spatial visualization platform analyzing land use, infrastructure, and top tourist attractions across the Bandarawela Division.</p>
+        </div>
+    </header>
+
+    <div class="stats-container">
+        <div class="stat-card">
+            <div class="stat-number"><span class="counter" data-target="1230">0</span> m</div>
+            <div class="stat-label">Mean Elevation</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number"><span class="counter" data-target="27.5">0</span> km²</div>
+            <div class="stat-label">Municipal Area</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number"><span class="counter" data-target="65000">0</span>+</div>
+            <div class="stat-label">Urban Population</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number"><span class="counter" data-target="5">0</span> Layers</div>
+            <div class="stat-label">Spatial Datasets</div>
+        </div>
+    </div>
+
+    <section class="map-section">
+        <div class="map-controls-header">
+            <div>
+                <h2>Interactive Village Spatial Map</h2>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Hover over markers for details. <b>Zoom out</b> and toggle the "Accessibility Routes" layer to view animated distances.</p>
+            </div>
+        </div>
+        <div id="map"></div>
+    </section>
+
+    <section class="extraction-container">
+        <div class="extraction-panel">
+            <div>
+                <span class="data-badge">Spatial Data Repository</span>
+                <h2>Extract Bandarawela Datasets</h2>
+                <p style="color: var(--text-muted); margin-top: 5px;">Download raw vector & attribute data for GIS analysis.</p>
+            </div>
+            <div class="download-buttons" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="data/bandarawela_spatial_data.zip" class="btn-primary" download>Download All Data (ZIP)</a>
+                <a href="data/roads.geojson" class="btn-secondary" download>GeoJSON (Roads)</a>
+                <a href="data/boundaries.kml" class="btn-secondary" download>KML (Boundaries)</a>
+                <a href="data/poi_data.csv" class="btn-secondary" download>CSV (Points)</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>BANDARAWELA</h3>
+                <p>Visualizing spatial information and preserving local heritage for the Town & Country Planning community.</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Main Street, Bandarawela, Sri Lanka</p>
+                <p><i class="fas fa-envelope"></i> info@bandarawela-geo.lk</p>
+                <p><i class="fas fa-phone"></i> +94 57 222 2222</p>
+            </div>
+            <div class="footer-social">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Bandarawela Geo-Portal Project. Designed for PL1106.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <!-- Linked to external JS file -->
+    <script src="js/geoportal.js"></script>
+</body>
+</html>

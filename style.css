@@ -1,0 +1,617 @@
+/* Color Palette based on the provided template */
+:root {
+    --bg-dark: #0f1c18;       
+    --bg-card: #1a2c25;       
+    --accent-green: #2ecc91;  
+    --text-main: #ffffff;
+    --text-muted: #94a39d;
+    --font-stack: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-stack);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceArrow {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
+}
+
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(46, 204, 145, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(46, 204, 145, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(46, 204, 145, 0); }
+}
+
+.animate-text {
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(15, 28, 24, 0.9);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-green);
+}
+
+.highlight-link {
+    color: var(--accent-green) !important;
+}
+
+/* Hero Section with Video */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(15,28,24,0.95) 0%, rgba(15,28,24,0.6) 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    max-width: 650px;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.accent-text {
+    color: var(--accent-green);
+}
+
+.hero-content p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Buttons with Animations */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-green);
+    color: var(--bg-dark);
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.2s;
+    animation: pulseGlow 2s infinite;
+}
+
+.btn-primary:hover {
+    background-color: #27ae7b;
+    transform: translateY(-3px) scale(1.05);
+    animation: none;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--accent-green);
+    border: 2px solid var(--accent-green);
+    padding: 10px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-green);
+    color: var(--bg-dark);
+    transform: translateY(-3px);
+}
+
+/* Features Grid */
+.features-section {
+    padding: 100px 10%;
+}
+
+.section-header {
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: var(--text-muted);
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--bg-card);
+    padding: 40px;
+    border-radius: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(46, 204, 145, 0.15);
+    border-color: rgba(46, 204, 145, 0.3);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--accent-green);
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Community Section */
+.community-section {
+    padding: 50px 10% 100px;
+}
+
+.community-box {
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(46, 204, 145, 0.1) 100%);
+    padding: 60px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid rgba(46, 204, 145, 0.2);
+    transition: transform 0.3s;
+}
+
+.community-box:hover {
+    transform: scale(1.02);
+}
+
+.community-box h2 {
+    margin-bottom: 15px;
+}
+
+.community-box p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.interaction-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* =========================================
+   CUSTOM LEAFLET TOOLTIP & POPUP STYLES 
+   ========================================= */
+.leaflet-tooltip.custom-hover-tooltip {
+    background: var(--bg-card) !important;
+    color: var(--text-main) !important;
+    border: 1px solid var(--accent-green) !important;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    width: 200px;
+    white-space: normal;
+}
+
+.leaflet-tooltip-left.custom-hover-tooltip::before {
+    border-left-color: var(--accent-green) !important;
+}
+.leaflet-tooltip-right.custom-hover-tooltip::before {
+    border-right-color: var(--accent-green) !important;
+}
+
+.hover-card-content {
+    text-align: center;
+}
+
+.hover-card-content img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.hover-card-content h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--accent-green);
+}
+
+.hover-card-content p {
+    margin: 5px 0;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.hover-arrow {
+    font-size: 1.2rem;
+    color: var(--accent-green);
+    display: inline-block;
+    animation: bounceArrow 1.5s infinite;
+    margin-top: 5px;
+}
+/* =========================================
+   VILLAGE IDENTITY SECTION 
+   ========================================= */
+.identity-section {
+    padding: 100px 10%;
+    background-color: var(--bg-dark);
+}
+
+.identity-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.identity-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.identity-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.identity-text p {
+    color: var(--text-muted);
+    margin-bottom: 15px;
+    font-size: 1.05rem;
+}
+
+.feature-list {
+    list-style: none;
+    margin-top: 25px;
+}
+
+.feature-list li {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.feature-list i {
+    margin-right: 10px;
+}
+
+.identity-image {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+.heritage-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    border: 2px solid rgba(46, 204, 145, 0.2);
+    transition: transform 0.5s ease, border-color 0.5s ease;
+}
+
+.heritage-img:hover {
+    transform: scale(1.02);
+    border-color: var(--accent-green);
+}
+
+.data-badge {
+    display: inline-block;
+    background: rgba(46, 204, 145, 0.15);
+    color: var(--accent-green);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =========================================
+   FOOTER & ANIMATED SOCIAL ICONS 
+   ========================================= */
+.site-footer {
+    background-color: #08110f; /* Slightly darker than main background */
+    padding: 60px 10% 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-brand h3 {
+    color: var(--accent-green);
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.footer-brand p, .footer-contact p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.footer-contact h4, .footer-social h4 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.footer-contact i {
+    color: var(--accent-green);
+    margin-right: 10px;
+    width: 15px;
+}
+
+/* Social Icons Animation Keyframes */
+@keyframes socialBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    background-color: var(--bg-card);
+    color: var(--text-main);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.4s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Hover effects for social icons */
+.social-btn:hover {
+    background-color: var(--accent-green);
+    color: var(--bg-dark);
+    border-color: var(--accent-green);
+    box-shadow: 0 0 15px rgba(46, 204, 145, 0.6);
+    /* Trigger the custom bounce animation on hover */
+    animation: socialBounce 0.6s ease-in-out;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+/* =========================================
+   GLOBAL FIXED VIDEO BACKGROUND 
+   ========================================= */
+.global-video-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -100; /* Stays behind all website content */
+    object-fit: cover;
+    filter: brightness(0.25); /* Darkened heavily so text stays readable */
+}
+
+/* Make the body and sections transparent so the video shows through */
+body {
+    background-color: transparent !important;
+}
+
+.identity-section, 
+.features-section, 
+.community-section,
+.map-section,
+.extraction-container {
+    background-color: rgba(15, 28, 24, 0.6) !important; /* 60% opacity dark green */
+    backdrop-filter: blur(3px); /* Adds a premium glass-blur effect */
+}
+
+.site-footer {
+    background-color: rgba(8, 17, 15, 0.85) !important;
+}
+/* =========================================
+   PHOTO REEL (INFINITE SCROLL)
+   ========================================= */
+.photo-reel-section {
+    padding: 80px 0; /* No side padding so it stretches full width */
+    overflow: hidden;
+}
+
+.reel-wrapper {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 20px 0;
+}
+
+.reel-track {
+    display: inline-block;
+    animation: scrollReel 20s linear infinite;
+}
+
+.reel-track img {
+    height: 250px;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin: 0 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.reel-track img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes scrollReel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* =========================================
+   CITY EVOLUTION (BEFORE/AFTER SLIDER)
+   ========================================= */
+.evolution-section {
+    padding: 80px 10%;
+}
+
+.compare-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(46, 204, 145, 0.3);
+}
+
+.compare-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.compare-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%; /* Initial width matches slider at 50% */
+    height: 100%;
+    overflow: hidden;
+    border-right: 3px solid var(--accent-green); /* The slider bar line */
+}
+
+/* Make sure the image inside the overlay stays fixed at the parent container's width */
+.overlay-img {
+    width: 800px; /* Must match .compare-container max-width */
+    max-width: none;
+}
+
+/* Custom styling for the range input to make it invisible but clickable */
+.compare-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Hide default slider */
+    cursor: ew-resize; /* Cursor shows horizontal dragging */
+    z-index: 10;
+}
