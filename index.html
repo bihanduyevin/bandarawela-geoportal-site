@@ -27,7 +27,7 @@
 
     <header id="home" class="hero">
         <video autoplay muted loop playsinline class="video-background">
-            <source src="bg/bgvid.mp4" type="video/mp4">
+            <source src="assets/bgvid.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="hero-overlay"></div>
@@ -73,7 +73,19 @@
         </div>
     </section>
 
-    
+    <section class="evolution-section">
+        <div class="section-header animate-text" style="text-align: center;">
+            <h2>CITY EVOLUTION</h2>
+            <p>Drag the slider to compare the historical and modern layout of Bandarawela.</p>
+        </div>
+        <div class="compare-container animate-text">
+            <img src="assets/2000_Bandarawela.png" class="compare-img base-img" alt="Historical Map">
+            <div class="compare-overlay" id="compareOverlay">
+                <img src="assets/2026_Bandarawela.png" class="compare-img overlay-img" alt="Modern Map">
+            </div>
+            <input type="range" min="0" max="100" value="50" class="compare-slider" id="compareSlider">
+        </div>
+    </section>
 
     <section class="features-section">
         <div class="section-header animate-text">
@@ -127,13 +139,14 @@
             <canvas id="populationChart"></canvas>
         </div>
     </section>
+
     <section id="community" class="community-section">
         <div class="community-box animate-text">
             <h2>Community Forum & Feedback</h2>
             <p>Connect with residents, ask questions about Bandarawela's development plans, or share your spatial data insights.</p>
             
             <!-- Note: Replace YOUR_FORMSPREE_ID with a free ID from formspree.io -->
-            <form id="feedbackForm" action="https://formspree.io/f/xbgralza" method="POST" class="feedback-form">
+            <form id="feedbackForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="feedback-form">
                 <div class="form-group">
                     <input type="text" name="name" placeholder="Your Name" required>
                 </div>
@@ -148,16 +161,6 @@
             <p id="formStatus" class="form-status"></p>
         </div>
     </section>
-    <section id="community" class="community-section">
-        <div class="community-box animate-text">
-            <h2>Community Forum & Feedback</h2>
-            <p>Connect with residents, ask questions about Bandarawela's development plans, or share your spatial data insights.</p>
-            <div class="interaction-buttons">
-                <a href="#" class="btn-secondary">Join the Discussion</a>
-                <a href="#" class="btn-secondary">Leave Feedback</a>
-            </div>
-        </div>
-    </section>
 
     <footer class="site-footer">
         <div class="footer-container">
@@ -167,9 +170,9 @@
             </div>
             <div class="footer-contact">
                 <h4>Contact Us</h4>
-                <p><i class="fas fa-map-marker-alt"></i> No 69, Thanthiriya, Bandarawela, Sri Lanka</p>
-                <p><i class="fas fa-envelope"></i> bihandu.ai@gmail.com</p>
-                <p><i class="fas fa-phone"></i> +94 725634874</p>
+                <p><i class="fas fa-map-marker-alt"></i> Main Street, Bandarawela, Sri Lanka</p>
+                <p><i class="fas fa-envelope"></i> info@bandarawela-geo.lk</p>
+                <p><i class="fas fa-phone"></i> +94 57 222 2222</p>
             </div>
             <div class="footer-social">
                 <h4>Connect With Us</h4>
