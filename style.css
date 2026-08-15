@@ -267,10 +267,47 @@ body {
     margin-right: auto;
 }
 
-.interaction-buttons {
+/* =========================================
+   FEEDBACK FORM STYLES
+   ========================================= */
+.feedback-form {
+    max-width: 500px;
+    margin: 30px auto 0;
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(15, 28, 24, 0.8);
+    border: 1px solid rgba(46, 204, 145, 0.3);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-family: var(--font-stack);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-green);
+    box-shadow: 0 0 10px rgba(46, 204, 145, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.form-status {
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--accent-green);
+    display: none; /* Hidden until triggered by JS */
 }
 
 /* =========================================
@@ -325,6 +362,7 @@ body {
     animation: bounceArrow 1.5s infinite;
     margin-top: 5px;
 }
+
 /* =========================================
    VILLAGE IDENTITY SECTION 
    ========================================= */
@@ -408,7 +446,7 @@ body {
    FOOTER & ANIMATED SOCIAL ICONS 
    ========================================= */
 .site-footer {
-    background-color: #08110f; /* Slightly darker than main background */
+    background-color: #08110f; 
     padding: 60px 10% 20px;
     border-top: 1px solid rgba(255,255,255,0.05);
 }
@@ -443,7 +481,6 @@ body {
     width: 15px;
 }
 
-/* Social Icons Animation Keyframes */
 @keyframes socialBounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-8px); }
@@ -469,13 +506,11 @@ body {
     border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Hover effects for social icons */
 .social-btn:hover {
     background-color: var(--accent-green);
     color: var(--bg-dark);
     border-color: var(--accent-green);
     box-shadow: 0 0 15px rgba(46, 204, 145, 0.6);
-    /* Trigger the custom bounce animation on hover */
     animation: socialBounce 0.6s ease-in-out;
 }
 
@@ -486,6 +521,7 @@ body {
     color: var(--text-muted);
     font-size: 0.85rem;
 }
+
 /* =========================================
    GLOBAL FIXED VIDEO BACKGROUND 
    ========================================= */
@@ -498,12 +534,11 @@ body {
     width: auto;
     height: auto;
     transform: translate(-50%, -50%);
-    z-index: -100; /* Stays behind all website content */
+    z-index: -100; 
     object-fit: cover;
-    filter: brightness(0.25); /* Darkened heavily so text stays readable */
+    filter: brightness(0.25); 
 }
 
-/* Make the body and sections transparent so the video shows through */
 body {
     background-color: transparent !important;
 }
@@ -513,18 +548,19 @@ body {
 .community-section,
 .map-section,
 .extraction-container {
-    background-color: rgba(15, 28, 24, 0.6) !important; /* 60% opacity dark green */
-    backdrop-filter: blur(3px); /* Adds a premium glass-blur effect */
+    background-color: rgba(15, 28, 24, 0.6) !important; 
+    backdrop-filter: blur(3px); 
 }
 
 .site-footer {
     background-color: rgba(8, 17, 15, 0.85) !important;
 }
+
 /* =========================================
    PHOTO REEL (INFINITE SCROLL)
    ========================================= */
 .photo-reel-section {
-    padding: 80px 0; /* No side padding so it stretches full width */
+    padding: 80px 0; 
     overflow: hidden;
 }
 
@@ -592,29 +628,28 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%; /* Initial width matches slider at 50% */
+    width: 50%; 
     height: 100%;
     overflow: hidden;
-    border-right: 3px solid var(--accent-green); /* The slider bar line */
+    border-right: 3px solid var(--accent-green); 
 }
 
-/* Make sure the image inside the overlay stays fixed at the parent container's width */
 .overlay-img {
-    width: 800px; /* Must match .compare-container max-width */
+    width: 800px; 
     max-width: none;
 }
 
-/* Custom styling for the range input to make it invisible but clickable */
 .compare-slider {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0; /* Hide default slider */
-    cursor: ew-resize; /* Cursor shows horizontal dragging */
+    opacity: 0; 
+    cursor: ew-resize; 
     z-index: 10;
 }
+
 /* =========================================
    MOBILE RESPONSIVENESS (MEDIA QUERIES)
    ========================================= */
@@ -653,10 +688,10 @@ body {
 
     /* City Evolution Slider Fix */
     .compare-container {
-        height: 250px; /* Reduces height to prevent stretching on mobile */
+        height: 250px; 
     }
     .overlay-img {
-        width: 100vw; /* Adapts image width to viewport */
+        width: 100vw; 
     }
 
     /* Stats Grid */
@@ -691,46 +726,4 @@ body {
         height: 180px;
         width: 250px;
     }
-}
-/* =========================================
-   FEEDBACK FORM STYLES
-   ========================================= */
-.feedback-form {
-    max-width: 500px;
-    margin: 30px auto 0;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 15px;
-    background: rgba(15, 28, 24, 0.8);
-    border: 1px solid rgba(46, 204, 145, 0.3);
-    border-radius: 8px;
-    color: var(--text-main);
-    font-family: var(--font-stack);
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-green);
-    box-shadow: 0 0 10px rgba(46, 204, 145, 0.2);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: var(--text-muted);
-}
-
-.form-status {
-    margin-top: 15px;
-    font-weight: 600;
-    color: var(--accent-green);
-    display: none; /* Hidden until triggered by JS */
 }
