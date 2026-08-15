@@ -727,3 +727,31 @@ body {
         width: 250px;
     }
 }
+/* =========================================
+   PERAHERA CARD WITH FADED BACKGROUND
+   ========================================= */
+.card-perahera {
+    /* 
+      1. Uses a linear gradient fading from the solid card color to a transparent dark green.
+      2. Places the image at the bottom center and scales it to cover the background.
+    */
+    background: linear-gradient(to bottom, var(--bg-card) 40%, rgba(15, 28, 24, 0.4) 100%), 
+                url('assets/perahera.jpg') center bottom / cover no-repeat;
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure the text and icon stay highly visible against the image */
+.card-perahera .card-icon,
+.card-perahera h3,
+.card-perahera p {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9); /* Adds a dark shadow behind the text */
+}
+
+/* Enhances the hover effect to slightly reveal more of the image */
+.card-perahera:hover {
+    background: linear-gradient(to bottom, var(--bg-card) 20%, rgba(15, 28, 24, 0.2) 100%), 
+                url('assets/perahera.jpg') center bottom / cover no-repeat;
+}
