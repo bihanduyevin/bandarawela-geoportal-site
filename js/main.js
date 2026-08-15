@@ -71,13 +71,14 @@ if (chartCanvas) {
 
     observer.observe(chartCanvas);
 }
+
 // 3. Community Feedback Form Handler
 const feedbackForm = document.getElementById('feedbackForm');
 const formStatus = document.getElementById('formStatus');
 
 if (feedbackForm) {
     feedbackForm.addEventListener('submit', async function(e) {
-        e.preventDefault(); // Stop standard redirect
+        e.preventDefault(); 
         
         const data = new FormData(feedbackForm);
         
@@ -96,7 +97,7 @@ if (feedbackForm) {
                 feedbackForm.reset();
             } else {
                 formStatus.innerText = "Oops! There was a problem submitting your feedback.";
-                formStatus.style.color = "#e74c3c"; // Red for error
+                formStatus.style.color = "#e74c3c"; 
                 formStatus.style.display = "block";
             }
         } catch (error) {
