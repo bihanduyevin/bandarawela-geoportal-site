@@ -127,7 +127,27 @@
             <canvas id="populationChart"></canvas>
         </div>
     </section>
-
+    <section id="community" class="community-section">
+        <div class="community-box animate-text">
+            <h2>Community Forum & Feedback</h2>
+            <p>Connect with residents, ask questions about Bandarawela's development plans, or share your spatial data insights.</p>
+            
+            <!-- Note: Replace YOUR_FORMSPREE_ID with a free ID from formspree.io -->
+            <form id="feedbackForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="feedback-form">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Share your feedback or insights here..." rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="border:none; cursor:pointer; width:100%;">Submit Feedback</button>
+            </form>
+            <p id="formStatus" class="form-status"></p>
+        </div>
+    </section>
     <section id="community" class="community-section">
         <div class="community-box animate-text">
             <h2>Community Forum & Feedback</h2>
